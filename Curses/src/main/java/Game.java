@@ -1,3 +1,8 @@
+/**
+ * @author Carla Heras
+ * @version v0.2
+ * 
+ */
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -23,17 +28,28 @@ public class Game {
         Vehicle vehicle;
     }
 
+    /**
+     * Funcio que crida a la configuracio i al menu
+     */
     public Game() {
         config = new ConfigGame();
         menu = new Menu(this,config);
     }
 
+    /**
+     * Funcio que crida al menu principal 
+     */
     public void start() {
         menu.menuPrincipal();
     }
 
+    /**
+     * Funcio que inicia el joc, creant els corredors i vehicles, incicia la cursa i recorre per els circuits, i mostra puntuacions
+     * @TODO refactoritzar i modular el mètode play
+     * 
+     * @param tipus Numero entrat per teclat que indica el vehicle que s'utilitza
+     */
     public void play(int tipus)  {
-        //pendent per fer: refactoritzar i modular el mètode play
         System.out.println(config);
 
         //crear participant usuari i resta de participants
@@ -77,7 +93,13 @@ public class Game {
 
     }
 
-    //pendent per fer: refactoritzar el codi repetit
+    
+    /**
+     * Funcio que afegeix els participants amb el vehicle corresponent
+     * @TODO refactoritzar el codi repetit
+     * 
+     * @param tipus Numero entrat per teclat que indica el vehicle que s'utilitza
+     */
     private void addParticipants(int tipus) {
 
         switch (tipus) {
@@ -98,6 +120,9 @@ public class Game {
         }
     }
 
+    /**
+     * Funcio que printa els resultats finals de cada cursa
+     */
     public void finalResults() {
         //ordenar per punts
         resultatsCursa.sort((o1, o2) -> (int) (o2.vehicle.getPilot().getPunts() - o1.vehicle.getPilot().getPunts()));
@@ -110,10 +135,16 @@ public class Game {
         System.out.println();
     }
 
+    /**
+     * Funcio que reseteja els resultats
+     */
     public void initResults() {
         resultatsCursa.clear();
     }
 
+    /**
+     * Funcio que seteja els participants
+     */
     private void setParticipants() {
         participants[0].setPilot(new Pilot(config.getUserName()));
         resul.vehicle = participants[0];
@@ -127,6 +158,9 @@ public class Game {
         }
     }
 
+    /**
+     * @TODO
+     */
     private void eliminarDarrerClassificat() {
       //pendent  
     }

@@ -1,3 +1,9 @@
+/**
+ * @author Carla Heras
+ * @version v0.2
+ * 
+ * Classe que printa el menu
+ */
 import java.util.Scanner;
 
 public class Menu {
@@ -6,12 +12,20 @@ public class Menu {
     ConfigGame configGame;
     Game game;
 
+    /**
+     * 
+     * @param game 
+     * @param config
+     */
     public Menu(Game game, ConfigGame config) {
         opcio = -1;
         this.game = game;
         configGame = config;
     }
 
+    /**
+     * Funcio que printa el menu principal
+     */
     public void menuPrincipal() {
         do {
             System.out.println("1. Configuració : " + configGame);
@@ -42,6 +56,9 @@ public class Menu {
         }while(opcio != 0);
     }
 
+    /**
+     * Funcio que modifica la configuracio
+     */
     public void setConfig() {
         System.out.println("Entra el teu nom: ");
         String n = in.nextLine();
@@ -54,6 +71,9 @@ public class Menu {
         in.nextLine();
     }
 
+    /**
+     * Funcio que inicia el joc
+     */
     public void play() {
         System.out.println("Amb quin vehicle vols fer el campionat?");
         System.out.println("1) Bicicletes");
